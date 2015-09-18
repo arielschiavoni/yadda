@@ -8,17 +8,18 @@ var Yadda = require('yadda');
 var library = require('../google-library');
 var fs = require('fs');
 
-Yadda.plugins.mocha.StepLevelPlugin.init();
+Yadda.plugins.jasmine.StepLevelPlugin.init();
 jasmine.getEnv().defaultTimeoutInterval = 10000;
 
 var driver;
 
 describe('Google', function() {
 
-    beforeAll(function() {
-        driver = new webdriver.Builder()
-            .withCapabilities(webdriver.Capabilities.chrome())
-            .build();
+    beforeAll(function(done) {
+        executeInFlow(function() {
+            driver = new webdriver.Builder().usingServer().withCapabilities({'browserName': 'chrome'}).build();
+            driver.manage().timeouts().implicitlyWait(10000);
+        }, done);
     });
 
     new Yadda.FeatureFileSearch('features').each(function(file) {

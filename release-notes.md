@@ -1,5 +1,65 @@
 # Release Notes
 
+## Yadda 0.15.3
+* Step name included in context automatically courtesy of [remkoboschker](https://github.com/remkoboschker). Thanks.
+
+## Yadda 0.15.2
+* Multiline Steps and data-table converters (multiline data tables are still a work in progress)
+* Protractor example courtesy of [mgijsbertihodenpijl])[https://github.com/mgijsbertihodenpijl]. Thanks
+
+## Yadda 0.15.1
+* Converted README into a gitbook
+* Fixed a minor bug with example tables
+
+## Yadda 0.15.0
+* Breaking Change: Multiline steps in scenarios and backgrounds
+
+## Yadda 0.14.2
+* Example table meta fields for incorporating index, line and column values into your scenarios.
+
+## Yadda 0.14.1
+* Dictionary converters can take multilpe arguments.
+
+## Yadda 0.14.0
+* Dictionaries can be used to convert arguments into arbitary types. Integer, float and date converters are provided out of the box.
+
+## Yadda 0.13.1
+* Fixes an issues where the new Annotations class broke moonraker
+
+## Yadda 0.13.0
+* An amazing amount of work adding multiline example tables be [thr0w](http://github.com/thr0w).
+* [thr0w](http://github.com/thr0w) also added annotation support to example tables.
+* Breaking Change: In reworking some of [thr0w's](http://github.com/thr0w) example table code we added a breaking change around example table formating. You'll only notice if you centered column headings. If this feature is important to you then we suggest adding column separators to the outer left and right edges table, e.g.
+```
+|   one  |   two   |  three  |
+| banana | orange  | apricot |
+```
+* Breaking Change: Annotations have been reworked into a class. If you access annotations you need to do so via the get method
+```js
+// Instead of
+feature.annotations.pending
+// Do
+feature.annotations.get('pending')
+```
+Annotations can be requested using any case but are stored internally in lowercase. It is not longer valid for annotation names to contain spaces and non alhpanumerics are no longer converted to an underscore.
+* Breaking Change: Removed deprecated mocha plugin
+* Breaking Change: Background can no longer have descriptions
+* If you're using a recent version of mocha in combination with the StepLevelPlugin aborted steps will be marked as Pending.
+
+## Yadda 0.12.1
+* Adding @Only support to jasmine plugin
+
+## Yadda 0.12.0
+* Removing deprecated mocha plugin.
+* Allow the default language to be overriden. See https://github.com/acuminous/yadda/issues/102.
+
+## Yadda 0.11.7
+* Portuguese language support courtesy of [https://github.com/thr0w](thr0w). Thanks.
+
+## Yadda 0.11.6
+* Added console.log to request user feedback on whether [background descriptions](https://github.com/acuminous/yadda/issues/146) can be decprecated
+* Improved examples
+
 ## Yadda 0.11.5
 * Russian language support kindly contributed by [vectart](https://github.com/vectart)
 

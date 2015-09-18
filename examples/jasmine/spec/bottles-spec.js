@@ -1,6 +1,9 @@
 /* jslint node: true */
-/* global featureFile, scenarios, steps */
+/* global featureFile, scenarios, steps, jasmine */
 "use strict";
+
+var SpecReporter = require('jasmine-spec-reporter');
+jasmine.getEnv().addReporter(new SpecReporter());
 
 var Yadda = require('yadda');
 Yadda.plugins.jasmine.StepLevelPlugin.init();

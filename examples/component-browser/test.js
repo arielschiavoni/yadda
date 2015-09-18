@@ -1,5 +1,5 @@
 /* jslint node: true */
-/* global mocha, featureFiles, scenarios */
+/* global mocha, featureFiles, scenarios, steps */
 "use strict";
 
 (function() {
@@ -13,11 +13,14 @@
     var yadda = Yadda.createInstance(library);
 
     mocha.setup('bdd');
-    Yadda.plugins.mocha.ScenarioLevelPlugin.init({ parser: parser });
+
+    Yadda.plugins.mocha.StepLevelPlugin.init({ parser: parser });
 
     featureFiles(bottles, function(feature) {
-        scenarios(feature.scenarios, function(scenario, done) {
-            yadda.run(scenario.steps, done);
+        scenarios(feature.scenarios, function(scenario) {
+            steps(scenario.steps, function(step, done) {
+                yadda.run(step, done);
+            });
         });
     });
 })();

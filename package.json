@@ -1,11 +1,11 @@
 {
   "name": "yadda",
-  "version": "0.11.5",
+  "version": "0.15.3",
   "description": "A true BDD framework for JavaScript",
   "main": "./lib/index.js",
   "devDependencies": {
     "mocha": "*",
-    "browserify": "*",
+    "browserify": "10.2.6",
     "jshint": "^2.5.0"
   },
   "directories": {
@@ -13,7 +13,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "make test",
+    "test": "NODE_ENV=test mocha --recursive --reporter spec test",
     "istanbul": "NODE_ENV=test istanbul cover _mocha -- -u exports --reporter spec",
     "examples": "node bin/examples.js",
     "browserify": "node bin/browserify.js",
